@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Masons' Secret Test</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      overflow-x: hidden;
+    }
+
+    /* TOP IMAGE - Eye/Pyramid */
+    .top-image {
+      width: 100%;
+      background: #000;
+      text-align: center;
+      padding: 20px 0 0;
+    }
+    .top-image img {
+      width: 100%;
+      max-width: 480px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* FIRST TEXT BLOCK - black background */
+    .ty-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 20px 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #000;
+    }
+    .ty-box {
+      width: 900px;
+      max-width: 92vw;
+      text-align: center;
+      font-size: 21px;
+      line-height: 1.45;
+      color: #fff;
+    }
+    .ty-p { margin: 0; color: #fff; }
+    .u-blue { color: #0b63d6; text-decoration: underline; font-weight: 700; }
+    .u-red { color: #d00000; text-decoration: underline; font-weight: 700; }
+    .bold-ital { font-weight: 700; font-style: italic; color: #fff; }
+
+    /* MAIN IMAGE */
+    .main-image {
+      width: 100%;
+      background: #fff;
+    }
+    .main-image img {
+      width: 100%;
+      max-width: 600px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* SECOND TEXT BLOCK - white background */
+    .faith-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+    }
+    .faith-box {
+      width: 920px;
+      max-width: 92vw;
+      font-size: 20px;
+      line-height: 1.45;
+      color: #111;
+      text-align: center;
+    }
+    .p { margin: 0 0 18px 0; }
+    .p:last-child { margin-bottom: 0; }
+    .p-center { text-align: center; }
+    .bold { font-weight: 700; }
+    .ital { font-style: italic; }
+    .green-ital { color: #178a00; font-style: italic; font-weight: 700; }
+    .red-ital { color: #b00000; font-style: italic; }
+    .caps { text-transform: uppercase; font-weight: 400; }
+    .test-black { color: #111; font-style: italic; font-weight: 700; display: block; margin-top: 4px; }
+
+    /* BUTTON */
+    .button-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 10px 16px 30px;
+      background: #fff;
+    }
+    .pulse-button {
+      background-color: #28a745;
+      color: white;
+      width: 100%;
+      max-width: 92%;
+      padding: 22px 0;
+      font-size: 26px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      animation: pulseGlow 2s infinite;
+      box-shadow: 0 0 10px rgba(40, 167, 69, 0.6);
+      transition: transform 0.3s ease;
+      text-align: center;
+      display: block;
+      margin: 0 auto;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .pulse-button:hover { transform: scale(1.05); }
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 0 10px rgba(40,167,69,0.5), 0 0 20px rgba(40,167,69,0.4), 0 0 30px rgba(40,167,69,0.3);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(40,255,100,0.8), 0 0 40px rgba(40,255,100,0.5), 0 0 60px rgba(40,255,100,0.3);
+      }
+      100% {
+        box-shadow: 0 0 10px rgba(40,167,69,0.5), 0 0 20px rgba(40,167,69,0.4), 0 0 30px rgba(40,167,69,0.3);
+      }
+    }
+
+    /* BOTTOM LOGO */
+    .bottom-logo {
+      width: 100%;
+      background: #fff;
+      text-align: center;
+      padding: 10px 0 40px;
+    }
+    .bottom-logo img {
+      width: 120px;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP IMAGE -->
+  <div class="top-image">
+    <img
+      src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Olho%20Cumprimido.webp"
+      alt="Third Eye Pyramid"
+      fetchpriority="high"
+      loading="eager"
+    />
+  </div>
+
+  <!-- FIRST TEXT BLOCK -->
+  <div class="ty-wrap">
+    <div class="ty-box">
+      <p class="ty-p">
+        98% of people have their <span class="u-blue">Third Eye</span>
+        <span class="u-red">COMPLETELY DORMANT</span> and that's why they can't
+        <span class="bold-ital">attract money, health, and happiness into their lives.</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- MAIN IMAGE -->
+  <div class="main-image">
+    <img
+      src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/IMG%20PRINCIPAL%20Cumprimida.webp"
+      alt="Hidden Camera Masonic Ritual"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- SECOND TEXT BLOCK -->
+  <div class="faith-wrap">
+    <div class="faith-box">
+      <p class="p p-center">
+        Take the <span class="bold">Masons' Secret Test</span> by
+        <span class="green-ital">clicking the button below</span> to discover the
+        <span class="u-red">Current State</span> of your <span class="u-blue">Third Eye</span>
+        — and start living a life of <span class="caps">UNLIMITED ACHIEVEMENTS</span>,
+        <span class="ital">filled with wealth, peace, and abundance.</span>
+      </p>
+      <p class="p p-center">
+        <span class="red-ital">Free yourself from the blocks that are stopping your prosperity.</span>
+        <span class="test-black">(100% free test)</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- BUTTON -->
+  <div class="button-wrap">
+    <a href="https://abundanceprosperity.online/ga34a34ga71/" class="pulse-button">
+      TAKE MY TEST
+    </a>
+  </div>
+
+  <!-- BOTTOM LOGO -->
+  <div class="bottom-logo">
+    <img
+      src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Logo%20Cumprimida.webp"
+      alt="Masonic Logo"
+      loading="lazy"
+    />
+  </div>
+
+</body>
+</html>
