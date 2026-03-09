@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guardian Angel - Sacred Chant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #ffffff;
+      font-family: 'Lora', serif;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+
+    /* TOP BAR */
+    .top-bar {
+      background: #c0392b;
+      color: #fff;
+      text-align: center;
+      padding: 10px 16px;
+      font-family: 'Lora', serif;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .top-bar strong { font-weight: 700; }
+    .top-bar .date { color: #ffd700; font-weight: 700; }
+    .top-bar .viewers { font-weight: 700; }
+
+    /* HEADLINE */
+    .headline-section {
+      text-align: center;
+      padding: 28px 20px 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .headline-section h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(16px, 4.5vw, 22px);
+      font-weight: 700;
+      color: #c0392b;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+    .headline-section p {
+      font-size: clamp(14px, 3.5vw, 16px);
+      color: #333;
+      line-height: 1.6;
+    }
+    .headline-section p a {
+      color: #c0392b;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+    .headline-section p em {
+      color: #27ae60;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    /* VIDEO SECTION */
+    .video-section {
+      max-width: 480px;
+      margin: 0 auto 32px;
+      padding: 0 16px;
+    }
+    .video-wrapper {
+      width: 100%;
+      position: relative;
+    }
+
+    /* PRIEST SECTION */
+    .priest-section {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 20px 48px;
+      text-align: center;
+    }
+    .priest-image-wrap {
+      position: relative;
+      display: inline-block;
+    }
+    .priest-image-wrap img {
+      width: clamp(200px, 55vw, 280px);
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.15));
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <span class="viewers" id="viewer-count">1214</span> people are viewing this presentation.
+    Due to the high number of visits, it will only be available until:
+    <span class="date" id="expiry-date"></span>
+  </div>
+
+  <!-- VIDEO SECTION -->
+  <div class="video-section">
+    <div class="video-wrapper">
+      <vturb-smartplayer id="vid-688ba5b68d9ea41a82c55d74" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+      <script type="text/javascript">
+        var s = document.createElement("script");
+        s.src = "https://scripts.converteai.net/1931009e-87e8-44a9-862f-c0f557162b5e/players/688ba5b68d9ea41a82c55d74/v4/player.js";
+        s.async = !0;
+        document.head.appendChild(s);
+      </script>
+    </div>
+  </div>
+
+  <!-- PRIEST SECTION -->
+  <div class="priest-section">
+    <div class="priest-image-wrap">
+      <img
+        src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Sylas.png"
+        alt="Father Sylas"
+        width="280"
+        height="auto"
+        fetchpriority="high"
+        loading="eager"
+      />
+    </div>
+  </div>
+
+  <script>
+    // Dynamic expiry date — always shows a date ~7 days ahead
+    (function() {
+      var d = new Date();
+      d.setDate(d.getDate() + 7);
+      var mm = String(d.getMonth() + 1).padStart(2, '0');
+      var dd = String(d.getDate()).padStart(2, '0');
+      var yyyy = d.getFullYear();
+      document.getElementById('expiry-date').textContent = mm + '/' + dd + '/' + yyyy;
+    })();
+
+    // Dynamic viewer count — fluctuates realistically
+    (function() {
+      var base = 1214;
+      var el = document.getElementById('viewer-count');
+      setInterval(function() {
+        var delta = Math.floor(Math.random() * 7) - 3;
+        base = Math.max(1100, Math.min(1400, base + delta));
+        el.textContent = base;
+      }, 4000);
+    })();
+  </script>
+
+</body>
+</html>
