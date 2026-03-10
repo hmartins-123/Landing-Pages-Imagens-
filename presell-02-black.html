@@ -7,7 +7,7 @@
   <style>
     body{margin:0;padding:0;background:#000;font-family:Arial,Helvetica,sans-serif;}
     .top-image{width:100%;text-align:center;padding:40px 0 0;background:#000;}
-    .top-image img{width:200px;display:block;margin:0 auto;}
+    .top-image img{width:60%;max-width:360px;display:block;margin:0 auto;}
     .quiz-container{max-width:600px;margin:40px auto;padding:20px;text-align:center}
     .question-title{font-size:24px;color:#fff;margin-bottom:26px;font-weight:700}
     .answer-btn{background:#fff;color:#000;border:0;border-radius:15px;padding:16px 20px;font-size:16px;margin:10px 0;width:100%;cursor:pointer;text-align:left;transition:background-color .3s ease;font-family:Arial,Helvetica,sans-serif;}
@@ -21,11 +21,11 @@
     #loadingScreen p{color:#fff;font-size:16px;margin-bottom:30px}
     .progress-container{width:80%;background:#222;border-radius:20px;margin:auto;height:20px;overflow:hidden}
     .progress-bar{height:100%;width:0%;background:#28a745;border-radius:20px;transition:width .1s linear}
-    @media(max-width:768px){.quiz-container{margin:20px auto;padding:10px}.question-title{font-size:20px;margin-bottom:20px}.answer-btn,.text-input{font-size:15px;padding:14px 16px}.top-image img{width:160px;}}
+    @media(max-width:768px){.quiz-container{margin:20px auto;padding:10px}.question-title{font-size:20px;margin-bottom:20px}.answer-btn,.text-input{font-size:15px;padding:14px 16px}}
   </style>
 </head>
 <body>
-  <div class="top-image"> 
+  <div class="top-image">
     <img src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Completamente%20Fechado%20Cumprimido.webp" alt="Third Eye Pyramid" fetchpriority="high" loading="eager"/>
   </div>
   <div class="quiz-container" id="quiz">
