@@ -1,192 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Masonic Guardian Angel</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Your Third Eye Result</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background-color: #000;
-      color: #fff;
+      background: #000;
       font-family: Arial, Helvetica, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
+      color: #fff;
       overflow-x: hidden;
     }
 
-    .wrapper {
-      width: 100%;
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 30px 20px;
-    }
-
     /* HEADLINE */
-    .headline {
-      font-size: 26px;
-      font-weight: bold;
-      text-align: center;
+    .headline-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px 10px;
+      background: #000;
+    }
+    .headline-box {
+      width: 920px;
+      max-width: 92vw;
+      font-size: 22px;
+      font-weight: 700;
       line-height: 1.35;
-      margin-bottom: 20px;
       color: #fff;
-    }
-
-    /* GIF */
-    .gif-wrapper {
-      width: 100%;
       text-align: center;
-      margin-bottom: 24px;
+    }
+    .red-bold {
+      color: #FF2B2B;
+      font-weight: 700;
+      text-shadow: 0 0 10px rgba(255,43,43,.55);
     }
 
-    .gif-wrapper img {
+    /* TOP IMAGE */
+    .top-image {
       width: 100%;
+      background: #000;
+      text-align: center;
+      padding: 16px 0;
+    }
+    .top-image img {
+      width: 100%;
+      max-width: 480px;
       display: block;
+      margin: 0 auto;
     }
 
-    /* DIVIDER */
-    .divider {
-      width: 60%;
-      height: 1px;
-      background: linear-gradient(to right, transparent, #c9a84c, transparent);
-      margin: 0 auto 24px auto;
+    /* MESSAGE BLOCK */
+    .msg-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 20px 16px;
+      background: #000;
     }
-
-    /* BODY TEXT */
-    .body-text {
-      font-size: 17px;
-      line-height: 1.75;
-      text-align: left;
-      margin-bottom: 20px;
-      color: #ddd;
-    }
-
-    .body-text p {
-      margin-bottom: 18px;
-    }
-
-    .body-text strong {
-      font-weight: bold;
+    .msg-box {
+      width: 920px;
+      max-width: 92vw;
+      font-size: 21px;
+      line-height: 1.45;
       color: #fff;
+      text-align: center;
+    }
+    .msg-box p { margin: 0; color: #fff; }
+    .green-ital-u {
+      color: #39FF14;
+      font-style: italic;
+      font-weight: 700;
+      text-decoration: underline;
+      text-shadow: 0 0 10px rgba(57,255,20,.45);
+    }
+    .blue-no-u {
+      color: #2EA8FF;
+      text-decoration: none;
+      font-weight: 700;
+      text-shadow: 0 0 10px rgba(46,168,255,.55);
+    }
+    .white-bold { color: #fff; font-weight: 700; }
+    .bold { font-weight: 700; }
+    .bold-ital { font-weight: 700; font-style: italic; }
+
+    /* GIF IMAGE */
+    .gif-image {
+      width: 100%;
+      background: #000;
+      text-align: center;
+      padding: 10px 0;
+    }
+    .gif-image img {
+      width: 100%;
+      max-width: 480px;
+      display: block;
+      margin: 0 auto;
     }
 
     /* BUTTON */
+    .btn-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 20px 16px 30px;
+      background: #000;
+    }
     .pulse-button {
       background-color: #28a745;
       color: white;
-      padding: 18px 40px;
-      font-size: 18px;
+      width: 100%;
+      max-width: 92vw;
+      padding: 22px 0;
+      font-size: 22px;
       font-weight: bold;
       border: none;
       border-radius: 12px;
       cursor: pointer;
       text-decoration: none;
-      overflow: hidden;
       animation: pulseGlow 2s infinite;
-      box-shadow: 0 0 10px rgba(40, 167, 69, 0.6);
+      box-shadow: 0 0 10px rgba(40,167,69,0.6);
       transition: transform 0.3s ease;
       text-align: center;
       display: block;
-      margin: 30px auto 0 auto;
-      max-width: fit-content;
+      font-family: Arial, Helvetica, sans-serif;
     }
-
-    .pulse-button:hover {
-      transform: scale(1.05);
-    }
-
+    .pulse-button:hover { transform: scale(1.05); }
     @keyframes pulseGlow {
-      0% {
-        box-shadow: 0 0 10px rgba(40, 167, 69, 0.5),
-                    0 0 20px rgba(40, 167, 69, 0.4),
-                    0 0 30px rgba(40, 167, 69, 0.3);
-      }
-      50% {
-        box-shadow: 0 0 20px rgba(40, 255, 100, 0.8),
-                    0 0 40px rgba(40, 255, 100, 0.5),
-                    0 0 60px rgba(40, 255, 100, 0.3);
-      }
-      100% {
-        box-shadow: 0 0 10px rgba(40, 167, 69, 0.5),
-                    0 0 20px rgba(40, 167, 69, 0.4),
-                    0 0 30px rgba(40, 167, 69, 0.3);
-      }
+      0%   { box-shadow: 0 0 10px rgba(40,167,69,0.5), 0 0 20px rgba(40,167,69,0.4), 0 0 30px rgba(40,167,69,0.3); }
+      50%  { box-shadow: 0 0 20px rgba(40,255,100,0.8), 0 0 40px rgba(40,255,100,0.5), 0 0 60px rgba(40,255,100,0.3); }
+      100% { box-shadow: 0 0 10px rgba(40,167,69,0.5), 0 0 20px rgba(40,167,69,0.4), 0 0 30px rgba(40,167,69,0.3); }
     }
 
-    /* FOOTER */
-    .footer-links {
+    /* BOTTOM LOGO */
+    .bottom-logo {
+      width: 100%;
+      background: #000;
       text-align: center;
-      margin-top: 20px;
-      margin-bottom: 10px;
-      font-size: 13px;
-      color: #666;
+      padding: 10px 0 40px;
+    }
+    .bottom-logo img {
+      width: 120px;
+      display: block;
+      margin: 0 auto;
     }
 
-    .footer-links a {
-      color: #666;
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      text-decoration: underline;
+    @media (max-width: 480px) {
+      .headline-box { font-size: 19px; }
+      .msg-box { font-size: 18px; }
+      .pulse-button { font-size: 20px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="wrapper">
-
-    <!-- HEADLINE -->
-    <h1 class="headline">
-      Based on your answers, your <strong>Masonic Guardian Angel</strong> is COMPLETELY HIDDEN... and this is EXTREMELY SERIOUS!
-    </h1>
-
-    <!-- GIF 1 - ANJO -->
-    <div class="gif-wrapper">
-      <img
-        src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Giff%20Anjo%20etapa%203.gif"
-        alt="Guardian Angel"
-      />
+  <!-- HEADLINE -->
+  <div class="headline-wrap">
+    <div class="headline-box">
+      Based on your answers, your Third Eye is COMPLETELY DORMANT and this is
+      <span class="red-bold">VERY SERIOUS!</span>
     </div>
+  </div>
 
-    <div class="divider"></div>
+  <!-- TOP IMAGE - Pyramid -->
+  <div class="top-image">
+    <img
+      src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Olho%20Fechado%20Cumprimido.webp"
+      alt="Third Eye Pyramid"
+      fetchpriority="high"
+      loading="eager"
+    />
+  </div>
 
-    <!-- BODY TEXT -->
-    <div class="body-text">
-
-      <p>To restore the fast flow of money and unlock ancient blessings, you must find your <strong>Masonic Guardian Angel</strong> immediately — before he drifts away forever.</p>
-
-      <p>🔱 Watch the <strong>secret video from the Grand Master Mason of the United States</strong> by clicking the button below, and discover the sacred ritual that — alongside a hermit priest — will guide you back to the path where your <strong>Masonic Guardian Angel</strong> awaits.</p>
-
+  <!-- MESSAGE -->
+  <div class="msg-wrap">
+    <div class="msg-box">
+      <p>
+        Watch the <span class="red-bold">Secret Video</span> from the
+        <span class="bold">U.S. Grand Master Mason</span> by
+        <span class="green-ital-u">clicking the button below</span>
+        and discover the <span class="blue-no-u">Sacred Ritual</span> he teaches to activate your
+        <span class="white-bold">Third Eye</span> and restore your ability to manifest WHATEVER you desire
+        <span class="bold-ital">in less than 7 days.</span>
+      </p>
     </div>
+  </div>
 
-    <!-- GIF 2 - SYLAS E GEORGE -->
-    <div class="gif-wrapper">
-      <img
-        src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Giff%20Sylas%20e%20George.gif"
-        alt="Sylas and George"
-      />
-    </div>
+  <!-- GIF IMAGE -->
+  <div class="gif-image">
+    <img
+      src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Giff%20Etapa%202%20Cumprimido.webp"
+      alt="Grand Master Mason"
+      loading="lazy"
+    />
+  </div>
 
-    <!-- BUTTON -->
-    <a href="https://abundanceprosperity.online/vsl-black/" class="pulse-button">
+  <!-- BUTTON -->
+  <div class="btn-wrap">
+    <a href="https://abundanceprosperity.online/white.html" class="pulse-button">
       CLICK TO WATCH THE VIDEO
     </a>
+  </div>
 
-    <!-- FOOTER -->
-    <div class="footer-links">
-      <a href="#">Privacy Policy</a> – <a href="#">Terms of Use</a>
-    </div>
-
+  <!-- BOTTOM LOGO -->
+  <div class="bottom-logo">
+    <img
+      src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/logo%20transparente.webp"
+      alt="Masonic Logo"
+      loading="lazy"
+    />
   </div>
 
 </body>
 </html>
- 
