@@ -19,11 +19,14 @@
     #loadingScreen{display:none;text-align:center;padding:60px 20px;background:#000;min-height:100vh;}
     #loadingScreen h2{color:#fff;font-size:22px;font-weight:700;margin-bottom:8px;}
     #loadingScreen p{color:#aaa;font-size:15px;margin-bottom:40px;}
-    
-    /* OPÇÃO C - ESTILOS DO LOADING */
-    .opt-c-container { width: 100%; max-width: 250px; margin: 0 auto 30px; display: flex; justify-content: center; align-items: center; min-height: 200px; }
-    #revealImage { width: 100%; opacity: 0; filter: drop-shadow(0 0 0px rgba(201,168,76,0)); clip-path: inset(100% 0 0 0); transition: clip-path 0.1s linear, filter 0.1s linear; }
-
+    .portal-wrap{width:220px;height:220px;margin:0 auto 40px;position:relative;}
+    .portal-ring{position:absolute;inset:0;border-radius:50%;border:4px solid transparent;border-top-color:#c9a84c;border-right-color:#ffe680;animation:spinRing 1.2s linear infinite;}
+    .portal-ring2{position:absolute;inset:14px;border-radius:50%;border:3px solid transparent;border-bottom-color:#c9a84c;border-left-color:#a07820;animation:spinRing 1.8s linear infinite reverse;}
+    .portal-ring3{position:absolute;inset:28px;border-radius:50%;border:2px solid transparent;border-top-color:#ffe680;border-right-color:#c9a84c;animation:spinRing 2.4s linear infinite;}
+    .portal-core{position:absolute;inset:42px;border-radius:50%;background:radial-gradient(circle,rgba(255,230,128,0.25) 0%,rgba(201,168,76,0.1) 50%,transparent 100%);animation:pulseCore 2s ease-in-out infinite;}
+    .portal-symbol{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:52px;animation:pulseCore 2s ease-in-out infinite;}
+    @keyframes spinRing{to{transform:rotate(360deg);}}
+    @keyframes pulseCore{0%,100%{opacity:0.6;transform:scale(0.95);}50%{opacity:1;transform:scale(1.05);}}
     .progress-container{width:85%;background:#222;border-radius:20px;margin:0 auto;height:14px;overflow:hidden;}
     .progress-bar{height:100%;width:0%;background:linear-gradient(to right,#8a6a00,#c9a84c,#ffe680);border-radius:20px;transition:width .1s linear;box-shadow:0 0 8px rgba(201,168,76,0.6);}
     .loading-label{color:#c9a84c;font-size:13px;margin-top:12px;letter-spacing:2px;text-transform:uppercase;}
@@ -32,30 +35,30 @@
 </head>
 <body>
   <div class="top-image">
-    <img src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Completamente%20Fechado%20Cumprimido.webp" alt="Third Eye Pyramid" fetchpriority="high" loading="eager"/>
+    <img id="mainImage" src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Completamente%20Fechado%20Cumprimido.webp" alt="Third Eye Pyramid" fetchpriority="high" loading="eager"/>
   </div>
-  
   <div class="quiz-container" id="quiz">
     <div id="questionBox" class="question-title"></div>
     <div id="answerButtons"></div>
     <div id="errorMsg" class="error"></div>
   </div>
-
   <div class="quiz-container" id="loadingScreen">
-    <h2>AWAKENING THE THIRD EYE</h2>
-    <p>Revealing your hidden path...</p>
-    <div class="opt-c-container">
-      <img id="revealImage" src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Completamente%20Fechado%20Cumprimido.webp" alt="Pyramid">
+    <h2>OPENING YOUR SPIRITUAL PORTAL</h2>
+    <p>Please wait while we reveal your result...</p>
+    <div class="portal-wrap">
+      <div class="portal-ring"></div>
+      <div class="portal-ring2"></div>
+      <div class="portal-ring3"></div>
+      <div class="portal-core"></div>
+      <div class="portal-symbol">🔱</div>
     </div>
     <div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
-    <div class="loading-label" id="loadingLabel">Materializing...</div>
+    <div class="loading-label" id="loadingLabel">Connecting...</div>
   </div>
-
 <script>
   const quizData=[{type:"input",key:"name",question:"What is your name?",placeholder:"Type your name here...",inputMode:"text",required:true},{type:"input",key:"dob",question:"What is your date of birth?",placeholder:"DD/MM/YYYY",inputMode:"numeric",required:false},{type:"choice",key:"wish",question:"What is the biggest wish you have — or have always wanted to come true?",answers:["💸 Become rich and financially prosperous.","❤️‍🩹 Healing for myself or someone I love.","💍 Find my true love.","✈️ Take the trip of my dreams.","🙏🏻 I don't know... I need a miracle to change my life."]},{type:"choice",question:"Have you ever felt like something is blocking your life... but you can't explain what it is?",answers:["😖 Yes, I've felt that more than once.","🥹 Maybe... but I'm not sure what it means.","😊 No, my life is perfect and everything always works out the way I want."]},{type:"choice",question:"Are you willing to live a life of miracles?",answers:["🚀 Yes, I'm ready.","🙌🏻 I'm not sure, but I want to try.","❌ I'm not interested."]}];
   let currentQuestion=0;
   const answers={name:"",dob:"",wish:"",choices:[]};
-  
   function showQuestion(index){
     const qBox=document.getElementById("questionBox");
     const aBox=document.getElementById("answerButtons");
@@ -78,20 +81,26 @@
     }
     q.answers.forEach(ans=>{const btn=document.createElement("button");btn.className="answer-btn";btn.textContent=ans;btn.onclick=()=>handleChoice(ans);aBox.appendChild(btn);});
   }
-  
   function showError(msg){const e=document.getElementById("errorMsg");e.textContent=msg;e.style.display="block";}
-  
   function handleChoice(answer){const q=quizData[currentQuestion];if(q.key==="wish")answers.wish=answer;else answers.choices.push(answer);currentQuestion++;if(currentQuestion<quizData.length)showQuestion(currentQuestion);else showLoadingScreen();}
-  
-  // OPÇÃO C - JS DO LOADING
   function showLoadingScreen(){
     document.getElementById("quiz").style.display="none";
     document.getElementById("loadingScreen").style.display="block";
+    
+    // Altera a imagem do topo para o GIF final
+    document.getElementById("mainImage").src = "https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Giff-Final-Quizz.webp";
+
     let width=0;
     const bar=document.getElementById("progressBar");
     const label=document.getElementById("loadingLabel");
-    const revealImg = document.getElementById("revealImage");
-    
+    const phases=[
+      {at:0,text:"Connecting..."},
+      {at:25,text:"Reading your energy..."},
+      {at:55,text:"Scanning your frequency..."},
+      {at:80,text:"Almost there..."},
+      {at:95,text:"Third Eye opening..."} // << AQUI ESTÁ A CORREÇÃO EM INGLÊS
+    ];
+    // 7 segundos exatos
     const interval=setInterval(()=>{
       if(width>=100){
         clearInterval(interval);
@@ -99,16 +108,11 @@
       } else {
         width++;
         bar.style.width=width+"%";
-        label.textContent = `Materializing... ${width}%`;
-        
-        // Efeito de revelação e brilho
-        revealImg.style.opacity = Math.max(0.2, width / 100);
-        revealImg.style.clipPath = `inset(${100 - width}% 0 0 0)`;
-        revealImg.style.filter = `drop-shadow(0 0 ${width / 3}px rgba(201,168,76,${width / 100}))`;
+        const phase=phases.filter(p=>p.at<=width).pop();
+        if(phase) label.textContent=phase.text;
       }
-    },40);
+    },70);
   }
-  
   showQuestion(currentQuestion);
 </script>
 <script>
