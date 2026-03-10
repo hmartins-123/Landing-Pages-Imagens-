@@ -20,9 +20,9 @@
     #loadingScreen h2{color:#fff;font-size:22px;font-weight:700;margin-bottom:8px;}
     #loadingScreen p{color:#aaa;font-size:15px;margin-bottom:40px;}
     
-    /* OPÇÃO B - ESTILOS DO LOADING */
-    #matrixCanvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; opacity: 0.5; }
-    #loadingScreen { position: relative; overflow: hidden; }
+    /* OPÇÃO C - ESTILOS DO LOADING */
+    .opt-c-container { width: 100%; max-width: 250px; margin: 0 auto 30px; display: flex; justify-content: center; align-items: center; min-height: 200px; }
+    #revealImage { width: 100%; opacity: 0; filter: drop-shadow(0 0 0px rgba(201,168,76,0)); clip-path: inset(100% 0 0 0); transition: clip-path 0.1s linear, filter 0.1s linear; }
 
     .progress-container{width:85%;background:#222;border-radius:20px;margin:0 auto;height:14px;overflow:hidden;}
     .progress-bar{height:100%;width:0%;background:linear-gradient(to right,#8a6a00,#c9a84c,#ffe680);border-radius:20px;transition:width .1s linear;box-shadow:0 0 8px rgba(201,168,76,0.6);}
@@ -42,14 +42,13 @@
   </div>
 
   <div class="quiz-container" id="loadingScreen">
-    <canvas id="matrixCanvas"></canvas>
-    <div style="position:relative; z-index:2;">
-      <h2>DECODING THE UNIVERSE</h2>
-      <p>Aligning your cosmic frequency...</p>
-      <div style="height:150px;"></div>
-      <div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
-      <div class="loading-label" id="loadingLabel">Connecting...</div>
+    <h2>AWAKENING THE THIRD EYE</h2>
+    <p>Revealing your hidden path...</p>
+    <div class="opt-c-container">
+      <img id="revealImage" src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Completamente%20Fechado%20Cumprimido.webp" alt="Pyramid">
     </div>
+    <div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="loading-label" id="loadingLabel">Materializing...</div>
   </div>
 
 <script>
@@ -84,48 +83,30 @@
   
   function handleChoice(answer){const q=quizData[currentQuestion];if(q.key==="wish")answers.wish=answer;else answers.choices.push(answer);currentQuestion++;if(currentQuestion<quizData.length)showQuestion(currentQuestion);else showLoadingScreen();}
   
-  // OPÇÃO B - JS DO LOADING
+  // OPÇÃO C - JS DO LOADING
   function showLoadingScreen(){
     document.getElementById("quiz").style.display="none";
     document.getElementById("loadingScreen").style.display="block";
-    
-    // Iniciar a Matrix
-    const canvas = document.getElementById('matrixCanvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const chars = '👁️☥✡ॐ☯☸⚕♆✧✦✨'.split('');
-    const fontSize = 22;
-    const columns = canvas.width / fontSize;
-    const drops = Array(Math.floor(columns)).fill(1);
-    
-    const matrixInterval = setInterval(() => {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = '#c9a84c';
-        ctx.font = fontSize + 'px Arial';
-        for(let i = 0; i < drops.length; i++) {
-            const text = chars[Math.floor(Math.random() * chars.length)];
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-            if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-            drops[i]++;
-        }
-    }, 50);
-
     let width=0;
     const bar=document.getElementById("progressBar");
     const label=document.getElementById("loadingLabel");
+    const revealImg = document.getElementById("revealImage");
+    
     const interval=setInterval(()=>{
       if(width>=100){
         clearInterval(interval);
-        clearInterval(matrixInterval);
         window.location.href="https://abundanceprosperity.online/presell-03-black.html";
       } else {
         width++;
         bar.style.width=width+"%";
-        label.textContent = `Syncing... ${width}%`;
+        label.textContent = `Materializing... ${width}%`;
+        
+        // Efeito de revelação e brilho
+        revealImg.style.opacity = Math.max(0.2, width / 100);
+        revealImg.style.clipPath = `inset(${100 - width}% 0 0 0)`;
+        revealImg.style.filter = `drop-shadow(0 0 ${width / 3}px rgba(201,168,76,${width / 100}))`;
       }
-    },30);
+    },40);
   }
   
   showQuestion(currentQuestion);
