@@ -9,15 +9,14 @@
     /* Design Global e Quiz (Fonte Padrão) */
     body{margin:0;padding:0;background:#000;font-family:Arial,Helvetica,sans-serif;color:#fff;}
     
-    /* Tamanho do GIF/Imagem do topo reduzido em 20% e sem espaço vazio */
-    .top-image{width:100%;text-align:center;padding:10px 0 0;background:#000;overflow:hidden;}
-    /* Retirado o filtro de iluminação (drop-shadow), mantido o tamanho reduzido */
-    .top-image img#mainImage{width:77%;max-width:460px;display:block;margin:0 auto;}
+    /* Topo e Imagem Original (Quiz) restaurados para o tamanho normal */
+    .top-image{width:100%;text-align:center;padding:40px 0 0;background:#000;overflow:hidden;transition: padding 0.5s ease;}
+    .top-image img#mainImage{width:96%;max-width:576px;display:block;margin:0 auto;transition: all 0.5s ease;}
     
-    /* Contêiner do Quiz com espaço reduzido */
-    .quiz-container{max-width:600px;margin:10px auto;padding:20px;text-align:center}
+    /* Contêiner do Quiz */
+    .quiz-container{max-width:600px;margin:40px auto;padding:20px;text-align:center}
     
-    /* Fontes padrão do Quiz restauradas */
+    /* Fontes padrão do Quiz */
     .question-title{font-size:24px;color:#fff;margin-bottom:26px;font-weight:700}
     .answer-btn{background:#fff;color:#000;border:0;border-radius:15px;padding:16px 20px;font-size:16px;margin:10px 0;width:100%;cursor:pointer;text-align:left;transition:background-color .3s ease;font-family:Arial,Helvetica,sans-serif;}
     .answer-btn:hover{background:#f0f0f0}
@@ -26,11 +25,12 @@
     .next-btn{margin-top:12px;text-align:center;font-weight:700}
     .error{color:#ff6b6b;font-size:14px;margin-top:10px;display:none;text-align:left}
     
-    /* TELA DE CARREGAMENTO (Com as Novas Fontes) */
-    #loadingScreen{display:none;text-align:center;padding:40px 20px 60px;background:#000;min-height:100vh;}
+    /* TELA DE CARREGAMENTO (Centralizada e Dourada) */
+    #loadingScreen{display:none;text-align:center;padding:20px 20px 60px;background:#000;}
     
-    #loadingScreen h2{font-family: 'Cinzel', serif;color:#fff;font-size:24px;font-weight:700;margin-bottom:8px;}
-    #loadingScreen p{font-family: 'Lora', serif;color:#aaa;font-size:15px;margin-bottom:40px;}
+    /* Todas as fontes do carregamento em Dourado */
+    #loadingScreen h2{font-family: 'Cinzel', serif;color:#ffe680;font-size:24px;font-weight:700;margin-bottom:8px;}
+    #loadingScreen p{font-family: 'Lora', serif;color:#c9a84c;font-size:15px;margin-bottom:40px;}
     
     .progress-container{width:85%;background:#222;border-radius:20px;margin:0 auto;height:14px;overflow:hidden;}
     .progress-bar{height:100%;width:0%;background:linear-gradient(to right,#8a6a00,#c9a84c,#ffe680);border-radius:20px;transition:width .1s linear;box-shadow:0 0 8px rgba(201,168,76,0.6);}
@@ -38,16 +38,14 @@
     .loading-label{font-family: 'Lora', serif;color:#c9a84c;font-size:13px;margin-top:12px;letter-spacing:2px;text-transform:uppercase;font-weight:bold;}
     
     @media(max-width:768px){
-      .quiz-container{margin:5px auto;padding:10px}
+      .quiz-container{margin:20px auto;padding:10px}
       .question-title{font-size:20px;margin-bottom:20px}
       .answer-btn,.text-input{font-size:15px;padding:14px 16px}
-      .top-image{padding:5px 0 0;}
-      .top-image img#mainImage{width:70%;max-width:380px;}
     }
   </style>
 </head>
 <body>
-  <div class="top-image">
+  <div class="top-image" id="topImageContainer">
     <img id="mainImage" src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Completamente%20Fechado%20Cumprimido.webp" alt="Third Eye Pyramid" fetchpriority="high" loading="eager"/>
   </div>
   <div class="quiz-container" id="quiz">
@@ -101,8 +99,16 @@
     document.getElementById("quiz").style.display="none";
     document.getElementById("loadingScreen").style.display="block";
     
-    // Troca a imagem instantaneamente usando a imagem pré-carregada
-    document.getElementById("mainImage").src = finalGiff.src;
+    // Configurações exclusivas do GIF e do alinhamento do Carregamento
+    const imgContainer = document.getElementById("topImageContainer");
+    const mainImg = document.getElementById("mainImage");
+    
+    mainImg.src = finalGiff.src; // Troca a imagem
+    mainImg.style.width = "76%"; // Deixa o GIF 20% menor que o original (96% -> 76%)
+    mainImg.style.maxWidth = "460px"; // Limite maximo menor
+    
+    // Adiciona o espaço no topo para centralizar tudo na tela
+    imgContainer.style.paddingTop = "10vh"; 
 
     let width=0;
     const bar=document.getElementById("progressBar");
