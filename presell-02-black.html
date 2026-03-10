@@ -69,5 +69,11 @@
   function showLoadingScreen(){document.getElementById("quiz").style.display="none";document.getElementById("loadingScreen").style.display="block";let width=0;const bar=document.getElementById("progressBar");const interval=setInterval(()=>{if(width>=100){clearInterval(interval);window.location.href="https://abundanceprosperity.online/as82asa3197/";}else{width++;bar.style.width=width+"%";}},30);}
   showQuestion(currentQuestion);
 </script>
+<script>
+  document.addEventListener('gesturestart', function(e){ e.preventDefault(); });
+  document.addEventListener('gesturechange', function(e){ e.preventDefault(); });
+  document.addEventListener('gestureend', function(e){ e.preventDefault(); });
+  document.addEventListener('touchmove', function(e){ if(e.touches.length > 1) e.preventDefault(); }, { passive: false });
+</script>
 </body>
 </html>
