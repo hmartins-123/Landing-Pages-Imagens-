@@ -33,7 +33,23 @@
     #loadingScreen p{font-family: 'Lora', serif;color:#c9a84c;font-size:15px;margin-bottom:40px;}
     
     .progress-container{width:85%;background:#222;border-radius:20px;margin:0 auto;height:14px;overflow:hidden;}
-    .progress-bar{height:100%;width:0%;background:linear-gradient(to right,#8a6a00,#c9a84c,#ffe680);border-radius:20px;transition:width .1s linear;box-shadow:0 0 8px rgba(201,168,76,0.6);}
+    
+    /* Barra de progresso com posição relativa para ancorar o brilho */
+    .progress-bar{height:100%;width:0%;background:linear-gradient(to right,#8a6a00,#c9a84c,#ffe680);border-radius:20px;transition:width .1s linear;box-shadow:0 0 8px rgba(201,168,76,0.6);position:relative;}
+    
+    /* EFEITO MÁGICO: A ponta brilhante da barra de carregamento */
+    .progress-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 12px;
+      height: 100%;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 15px 5px #ffe680, 0 0 25px 10px rgba(255, 255, 255, 0.8);
+      opacity: 0.9;
+    }
     
     .loading-label{font-family: 'Lora', serif;color:#c9a84c;font-size:13px;margin-top:12px;letter-spacing:2px;text-transform:uppercase;font-weight:bold;}
     
@@ -104,8 +120,8 @@
     const mainImg = document.getElementById("mainImage");
     
     mainImg.src = finalGiff.src; // Troca a imagem
-    mainImg.style.width = "76%"; // Deixa o GIF 20% menor que o original (96% -> 76%)
-    mainImg.style.maxWidth = "460px"; // Limite maximo menor
+    mainImg.style.width = "76%"; // Deixa o GIF 20% menor que o original
+    mainImg.style.maxWidth = "460px"; 
     
     // Adiciona o espaço no topo para centralizar tudo na tela
     imgContainer.style.paddingTop = "10vh"; 
