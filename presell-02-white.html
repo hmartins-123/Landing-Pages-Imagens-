@@ -19,14 +19,16 @@
     #loadingScreen{display:none;text-align:center;padding:60px 20px;background:#000;min-height:100vh;}
     #loadingScreen h2{color:#fff;font-size:22px;font-weight:700;margin-bottom:8px;}
     #loadingScreen p{color:#aaa;font-size:15px;margin-bottom:40px;}
-    .portal-wrap{width:220px;height:220px;margin:0 auto 40px;position:relative;}
-    .portal-ring{position:absolute;inset:0;border-radius:50%;border:4px solid transparent;border-top-color:#c9a84c;border-right-color:#ffe680;animation:spinRing 1.2s linear infinite;}
-    .portal-ring2{position:absolute;inset:14px;border-radius:50%;border:3px solid transparent;border-bottom-color:#c9a84c;border-left-color:#a07820;animation:spinRing 1.8s linear infinite reverse;}
-    .portal-ring3{position:absolute;inset:28px;border-radius:50%;border:2px solid transparent;border-top-color:#ffe680;border-right-color:#c9a84c;animation:spinRing 2.4s linear infinite;}
-    .portal-core{position:absolute;inset:42px;border-radius:50%;background:radial-gradient(circle,rgba(255,230,128,0.25) 0%,rgba(201,168,76,0.1) 50%,transparent 100%);animation:pulseCore 2s ease-in-out infinite;}
-    .portal-symbol{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:52px;animation:pulseCore 2s ease-in-out infinite;}
-    @keyframes spinRing{to{transform:rotate(360deg);}}
-    @keyframes pulseCore{0%,100%{opacity:0.6;transform:scale(0.95);}50%{opacity:1;transform:scale(1.05);}}
+    
+    /* OPÇÃO A - ESTILOS DO LOADING */
+    .opt-a-container { width: 180px; height: 180px; margin: 0 auto 40px; position: relative; display: flex; align-items: center; justify-content: center; }
+    .opt-a-circle { position: absolute; inset: 0; border: 3px dashed #c9a84c; border-radius: 50%; animation: spinA 4s linear infinite; }
+    .opt-a-rays { position: absolute; inset: -20px; background: conic-gradient(from 0deg, transparent 0deg, rgba(201,168,76,0.4) 45deg, transparent 90deg, rgba(201,168,76,0.4) 135deg, transparent 180deg, rgba(201,168,76,0.4) 225deg, transparent 270deg, rgba(201,168,76,0.4) 315deg, transparent 360deg); border-radius: 50%; animation: spinRays 3s linear infinite; }
+    .opt-a-core { width: 60px; height: 60px; background: radial-gradient(circle, #ffe680 0%, #c9a84c 60%, transparent 100%); border-radius: 50%; animation: pulseCoreA 1.5s ease-in-out infinite alternate; box-shadow: 0 0 30px #c9a84c; }
+    @keyframes spinA { 100% { transform: rotate(360deg); } }
+    @keyframes spinRays { 100% { transform: rotate(-360deg); } }
+    @keyframes pulseCoreA { 0% { transform: scale(0.8); opacity: 0.7; } 100% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 50px #ffe680; } }
+
     .progress-container{width:85%;background:#222;border-radius:20px;margin:0 auto;height:14px;overflow:hidden;}
     .progress-bar{height:100%;width:0%;background:linear-gradient(to right,#8a6a00,#c9a84c,#ffe680);border-radius:20px;transition:width .1s linear;box-shadow:0 0 8px rgba(201,168,76,0.6);}
     .loading-label{color:#c9a84c;font-size:13px;margin-top:12px;letter-spacing:2px;text-transform:uppercase;}
@@ -37,28 +39,30 @@
   <div class="top-image">
     <img src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Completamente%20Fechado%20Cumprimido.webp" alt="Third Eye Pyramid" fetchpriority="high" loading="eager"/>
   </div>
+  
   <div class="quiz-container" id="quiz">
     <div id="questionBox" class="question-title"></div>
     <div id="answerButtons"></div>
     <div id="errorMsg" class="error"></div>
   </div>
+
   <div class="quiz-container" id="loadingScreen">
-    <h2>OPENING YOUR SPIRITUAL PORTAL</h2>
-    <p>Please wait while we reveal your result...</p>
-    <div class="portal-wrap">
-      <div class="portal-ring"></div>
-      <div class="portal-ring2"></div>
-      <div class="portal-ring3"></div>
-      <div class="portal-core"></div>
-      <div class="portal-symbol">🔱</div>
+    <h2>SCANNING YOUR SOUL</h2>
+    <p>Please do not close this page...</p>
+    <div class="opt-a-container">
+      <div class="opt-a-rays"></div>
+      <div class="opt-a-circle"></div>
+      <div class="opt-a-core"></div>
     </div>
     <div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
-    <div class="loading-label" id="loadingLabel">Connecting...</div>
+    <div class="loading-label" id="loadingLabel">Scanning your energy field...</div>
   </div>
+
 <script>
   const quizData=[{type:"input",key:"name",question:"What is your name?",placeholder:"Type your name here...",inputMode:"text",required:true},{type:"input",key:"dob",question:"What is your date of birth?",placeholder:"DD/MM/YYYY",inputMode:"numeric",required:false},{type:"choice",key:"wish",question:"What is the biggest wish you have — or have always wanted to come true?",answers:["💸 Become rich and financially prosperous.","❤️‍🩹 Healing for myself or someone I love.","💍 Find my true love.","✈️ Take the trip of my dreams.","🙏🏻 I don't know... I need a miracle to change my life."]},{type:"choice",question:"Have you ever felt like something is blocking your life... but you can't explain what it is?",answers:["😖 Yes, I've felt that more than once.","🥹 Maybe... but I'm not sure what it means.","😊 No, my life is perfect and everything always works out the way I want."]},{type:"choice",question:"Are you willing to live a life of miracles?",answers:["🚀 Yes, I'm ready.","🙌🏻 I'm not sure, but I want to try.","❌ I'm not interested."]}];
   let currentQuestion=0;
   const answers={name:"",dob:"",wish:"",choices:[]};
+  
   function showQuestion(index){
     const qBox=document.getElementById("questionBox");
     const aBox=document.getElementById("answerButtons");
@@ -81,8 +85,12 @@
     }
     q.answers.forEach(ans=>{const btn=document.createElement("button");btn.className="answer-btn";btn.textContent=ans;btn.onclick=()=>handleChoice(ans);aBox.appendChild(btn);});
   }
+  
   function showError(msg){const e=document.getElementById("errorMsg");e.textContent=msg;e.style.display="block";}
+  
   function handleChoice(answer){const q=quizData[currentQuestion];if(q.key==="wish")answers.wish=answer;else answers.choices.push(answer);currentQuestion++;if(currentQuestion<quizData.length)showQuestion(currentQuestion);else showLoadingScreen();}
+  
+  // OPÇÃO A - JS DO LOADING
   function showLoadingScreen(){
     document.getElementById("quiz").style.display="none";
     document.getElementById("loadingScreen").style.display="block";
@@ -90,10 +98,9 @@
     const bar=document.getElementById("progressBar");
     const label=document.getElementById("loadingLabel");
     const phases=[
-      {at:0,text:"Connecting..."},
-      {at:25,text:"Reading your energy..."},
-      {at:55,text:"Scanning your frequency..."},
-      {at:80,text:"Almost there..."},
+      {at:0,text:"Scanning your energy field..."},
+      {at:35,text:"Connecting to your Guardian Angel..."},
+      {at:70,text:"Reading your spiritual frequency..."},
       {at:95,text:"Portal opening..."}
     ];
     const interval=setInterval(()=>{
@@ -108,6 +115,7 @@
       }
     },30);
   }
+  
   showQuestion(currentQuestion);
 </script>
 <script>
