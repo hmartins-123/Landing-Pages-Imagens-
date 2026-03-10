@@ -14,16 +14,14 @@
       overflow-x: hidden;
     }
 
-    /* TOP IMAGE - Eye/Pyramid */
+    /* TOP IMAGE - Eye/Pyramid — full width like image 02 */
     .top-image {
       width: 100%;
       background: #000;
       text-align: center;
-      padding: 20px 0 0;
     }
     .top-image img {
       width: 100%;
-      max-width: 480px;
       display: block;
       margin: 0 auto;
     }
@@ -57,7 +55,6 @@
     }
     .main-image img {
       width: 100%;
-      max-width: 600px;
       display: block;
       margin: 0 auto;
     }
@@ -131,7 +128,17 @@
       }
     }
 
-    /* BOTTOM LOGO */
+    /* DESKTOP button (white — enganar concorrentes) */
+    .btn-desktop { display: block; }
+    /* MOBILE button (black — real) */
+    .btn-mobile { display: none; }
+
+    @media (max-width: 768px) {
+      .btn-desktop { display: none; }
+      .btn-mobile { display: block; }
+    }
+
+    /* BOTTOM LOGO — full width like image 02 */
     .bottom-logo {
       width: 100%;
       background: #fff;
@@ -139,7 +146,7 @@
       padding: 10px 0 40px;
     }
     .bottom-logo img {
-      width: 120px;
+      width: 200px;
       display: block;
       margin: 0 auto;
     }
@@ -194,8 +201,15 @@
     </div>
   </div>
 
-  <!-- BUTTON -->
-  <div class="button-wrap">
+  <!-- BUTTON DESKTOP (white — enganar concorrentes) -->
+  <div class="button-wrap btn-desktop">
+    <a href="https://abundanceprosperity.online/presell-02-white.html" class="pulse-button">
+      TAKE MY TEST
+    </a>
+  </div>
+
+  <!-- BUTTON MOBILE (black — real) -->
+  <div class="button-wrap btn-mobile">
     <a href="https://abundanceprosperity.online/ga34a34ga71/" class="pulse-button">
       TAKE MY TEST
     </a>
