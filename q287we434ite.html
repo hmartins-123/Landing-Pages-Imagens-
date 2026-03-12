@@ -59,8 +59,46 @@
       .answer-btn,.text-input{font-size:15px;padding:14px 16px}
     }
   </style>
+
+  <link rel="preload" href="https://scripts.converteai.net/1931009e-87e8-44a9-862f-c0f557162b5e/ab-test/688046b333cd39d34618b3c0/player.js" as="script">
+  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+  <link rel="dns-prefetch" href="https://cdn.converteai.net">
+  <link rel="dns-prefetch" href="https://scripts.converteai.net">
+  <link rel="dns-prefetch" href="https://images.converteai.net">
+  <link rel="dns-prefetch" href="https://m3u8.vturb.net">
+  <link rel="dns-prefetch" href="https://api.vturb.com.br">
+
+  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+
+  <script
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-subids
+    async
+    defer
+  ></script>
+
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '766343195855685');
+    fbq('track', 'PageView');
+  </script>
+
 </head>
 <body>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=766343195855685&ev=PageView&noscript=1"
+    alt=""/>
+  </noscript>
+
   <div class="top-image" id="topImageContainer">
     <img id="mainImage" src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Completamente%20Fechado%20Cumprimido.webp" alt="Third Eye Pyramid" fetchpriority="high" loading="eager"/>
   </div>
@@ -76,6 +114,7 @@
     <div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
     <div class="loading-label" id="loadingLabel">Connecting...</div>
   </div>
+
 <script>
   // Faz o pré-carregamento do GIF da TELA DE CARREGAMENTO para ele aparecer instantaneamente
   const finalGiff = new Image();
