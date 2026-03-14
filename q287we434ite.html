@@ -77,19 +77,6 @@
     defer
   ></script>
 
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '766343195855685');
-    fbq('track', 'PageView');
-  </script>
-
 </head>
 <body>
 
@@ -100,7 +87,7 @@
   </noscript>
 
   <div class="top-image" id="topImageContainer">
-    <img id="mainImage" src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Completamente%20Fechado%20Cumprimido.webp" alt="Third Eye Pyramid" fetchpriority="high" loading="eager"/>
+    <img id="mainImage" src="/Completamente%20Fechado%20Cumprimido.webp" alt="Third Eye Pyramid" fetchpriority="high" loading="eager"/>
   </div>
   <div class="quiz-container" id="quiz">
     <div id="questionBox" class="question-title"></div>
@@ -118,11 +105,11 @@
 <script>
   // Faz o pré-carregamento do GIF da TELA DE CARREGAMENTO para ele aparecer instantaneamente
   const finalGiff = new Image();
-  finalGiff.src = "https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Giff-Final-Quizz.webp";
+  finalGiff.src = "/Giff-Final-Quizz.webp";
 
   // Faz o pré-carregamento do GIF da PRÓXIMA PÁGINA (Presell 03) para evitar travamentos
   const proximaPaginaGiff = new Image();
-  proximaPaginaGiff.src = "https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Giff-Etapa-2-Cumprimido-(3).gif";
+  proximaPaginaGiff.src = "/Giff-Etapa-2-Cumprimido-(3).gif";
 
   const quizData=[{type:"input",key:"name",question:"What is your name?",placeholder:"Type your name here...",inputMode:"text",required:true},{type:"input",key:"dob",question:"What is your date of birth?",placeholder:"DD/MM/YYYY",inputMode:"numeric",required:false},{type:"choice",key:"wish",question:"What is the biggest wish you have — or have always wanted to come true?",answers:["💸 Become rich and financially prosperous.","❤️‍🩹 Healing for myself or someone I love.","💍 Find my true love.","✈️ Take the trip of my dreams.","🙏🏻 I don't know... I need a miracle to change my life."]},{type:"choice",question:"Have you ever felt like something is blocking your life... but you can't explain what it is?",answers:["😖 Yes, I've felt that more than once.","🥹 Maybe... but I'm not sure what it means.","😊 No, my life is perfect and everything always works out the way I want."]},{type:"choice",question:"Are you willing to live a life of miracles?",answers:["🚀 Yes, I'm ready.","🙌🏻 I'm not sure, but I want to try.","❌ I'm not interested."]}];
   let currentQuestion=0;
@@ -201,5 +188,31 @@
   document.addEventListener('gestureend', function(e){ e.preventDefault(); });
   document.addEventListener('touchmove', function(e){ if(e.touches.length > 1) e.preventDefault(); }, { passive: false });
 </script>
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '766343195855685');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=766343195855685&ev=PageView&noscript=1"
+    alt=""/>
+  </noscript>
+
+  <script>
+    window.pixelId = "69b5d9d63ef951d9411e5471";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
 </body>
 </html>
