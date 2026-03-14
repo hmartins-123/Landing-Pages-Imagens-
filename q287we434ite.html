@@ -108,7 +108,7 @@
     <div id="errorMsg" class="error"></div>
   </div>
   <div class="quiz-container" id="loadingScreen">
-    <h2>OPENING YOUR SPIRITUAL PORTAL</h2>
+    <h2>WE ARE PROCESSING YOUR INFORMATION</h2>
     <p>Please wait while we reveal your result...</p>
     
     <div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
@@ -177,9 +177,9 @@
       {at:25,text:"Reading your energy..."},
       {at:55,text:"Scanning your frequency..."},
       {at:80,text:"Almost there..."},
-      {at:95,text:"Third Eye opening..."}
+      {at:95,text:"Almost there..."}
     ];
-    // 7 segundos de carregamento
+    // 5 segundos de carregamento
     const interval=setInterval(()=>{
       if(width>=100){
         clearInterval(interval);
@@ -190,7 +190,7 @@
         const phase=phases.filter(p=>p.at<=width).pop();
         if(phase) label.textContent=phase.text;
       }
-    },70);
+    },50);
   }
   
   showQuestion(currentQuestion);
