@@ -10,6 +10,7 @@
       padding: 0;
       box-sizing: border-box;
     }
+    img { max-width: 100%; height: auto; }
     body {
       background-color: #000;
       color: #fff;
@@ -84,16 +85,25 @@
       document.head.appendChild(s);
     </script>
   </div>
+
   <div class="george-image-wrapper">
     <img
-      src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/George-Miller-Cumprimido.webp"
+      src="/George-Miller-Cumprimido.webp"
       alt="George Miller"
+      fetchpriority="high"
+      loading="eager"
+      width="640"
+      height="640"
     />
   </div>
+
   <div style="text-align: center; padding: 20px 0 30px 0;">
     <img
-      src="https://raw.githubusercontent.com/hmartins-123/Landing-Pages-Imagens-/main/Logo-Preta.webp"
+      src="/Logo-Preta.webp"
       alt="Masonic Logo"
+      loading="lazy"
+      width="200"
+      height="200"
       style="width: 200px;"
     />
   </div>
